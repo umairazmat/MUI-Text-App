@@ -4,11 +4,9 @@ import "./App.css";
 import Navbar from "./components/nvabar/Navbar";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <div className="App">
-      <Navbar />
+      <Navbar title="Text-Util App" />
     </div>
   );
 }
