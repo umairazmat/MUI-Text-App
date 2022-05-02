@@ -3,7 +3,9 @@ import "./Textform.css";
 import { useState } from "react";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import Box from "@material-ui/core/Box";
+import Card from "@material-ui/core/Card";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
 import { makeStyles } from "@material-ui/core/styles";
 import TextareaAutosize from "@material-ui/core/TextareaAutosize";
 const useStyles = makeStyles((theme) => ({
@@ -82,6 +84,46 @@ export default function MinHeightTextarea(props) {
         <Button variant="outlined" color="secondary" onClick={handleResetClick}>
           Rest text
         </Button>
+      </div>
+
+      {/* Text Summary */}
+      <div
+        style={{
+          marginLeft: "200px",
+          marginTop: "20px",
+          width: "1000px",
+        }}
+      >
+        <Typography variant="h6" gutterBottom>
+          Text Summary
+        </Typography>
+        <hr />
+        <Typography variant="subtitle1" gutterBottom>
+          <b>Character: </b> {text.length}
+          <b> Words: </b>
+          {text.split(" ").length}
+          <br />
+          <b>Read time: </b>
+          {0.008 * text.split(" ").length + " Mins to read"}
+        </Typography>
+      </div>
+      {/* Card */}
+      <div
+        style={{
+          marginLeft: "200px",
+          marginTop: "20px",
+          width: "1000px",
+          marginBottom: "20px",
+        }}
+      >
+        <Card variant="outlined">
+          <CardContent>
+            <Typography variant="h5" component="h5">
+              Entered text:
+            </Typography>
+            <Typography variant="p">{text}</Typography>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );
