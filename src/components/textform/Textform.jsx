@@ -113,6 +113,7 @@ export default function MinHeightTextarea(props) {
           style={{ backgroundColor: "black", color: "white" }}
           variant="outlined"
           color="secondary"
+          onClick={handleResetClick}
         >
           Rest text
         </Button>
