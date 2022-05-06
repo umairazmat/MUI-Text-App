@@ -8,6 +8,7 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import { makeStyles } from "@material-ui/core/styles";
 import TextareaAutosize from "@material-ui/core/TextareaAutosize";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 const useStyles = makeStyles((theme) => ({
   root: {
     "& > *": {
@@ -38,6 +39,10 @@ export default function MinHeightTextarea(props) {
     setText(newText);
   };
 
+  const handleCopyClick = () => {
+    alert("Text Copied :" + " " + text);
+  };
+
   //   Change value when User satrt writting
   const handleOnChange = (event) => {
     console.log("onChange");
@@ -46,6 +51,7 @@ export default function MinHeightTextarea(props) {
 
   //   Use State
   const [text, setText] = useState("");
+  const [copied, setCopied] = useState(false);
   return (
     <div>
       {/* Heading */}
@@ -75,13 +81,40 @@ export default function MinHeightTextarea(props) {
           width: "1000px",
         }}
       >
-        <Button variant="outlined" color="deafult" onClick={handleUpClick}>
+        <Button
+          style={{ backgroundColor: "black", color: "white" }}
+          variant="outlined"
+          color="primary"
+          onClick={handleUpClick}
+        >
           Convert Upper Case
         </Button>
-        <Button variant="outlined" color="primary" onClick={handleLowerClick}>
+
+        <Button
+          style={{ backgroundColor: "black", color: "white" }}
+          variant="outlined"
+          color="primary"
+          onClick={handleLowerClick}
+        >
           Convert lower case
         </Button>
-        <Button variant="outlined" color="secondary" onClick={handleResetClick}>
+        <CopyToClipboard text={text} onCopy={() => setCopied(true)}>
+          <Button
+            style={{ backgroundColor: "black", color: "white" }}
+            variant="outlined"
+            color="primary"
+            onClick={handleCopyClick}
+          >
+            Copy Text
+          </Button>
+        </CopyToClipboard>
+
+        <Button
+          style={{ backgroundColor: "black", color: "white" }}
+          variant="outlined"
+          color="secondary"
+          onClick={handleResetClick}
+        >
           Rest text
         </Button>
       </div>
