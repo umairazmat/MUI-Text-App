@@ -6,6 +6,7 @@ import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
+import Alert from "@material-ui/lab/Alert";
 import { makeStyles } from "@material-ui/core/styles";
 import TextareaAutosize from "@material-ui/core/TextareaAutosize";
 import { CopyToClipboard } from "react-copy-to-clipboard";
@@ -40,7 +41,7 @@ export default function MinHeightTextarea(props) {
   };
 
   const handleCopyClick = () => {
-    alert("Text Copied :" + " " + text);
+    <Alert severity="success">This is a success alert — check it out!</Alert>;
   };
 
   //   Change value when User satrt writting
